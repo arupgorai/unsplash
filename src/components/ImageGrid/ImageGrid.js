@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { loadImages } from '../../actions';
 
 import './styles.css';
 
@@ -45,5 +46,8 @@ class ImageGrid extends Component {
 }
 
 const mapStateToProps = ({ isLoading, images, error }) => ({ isLoading, images, error });
+const mapDispatchToProps = dispatch => ({
+    loadImages: () => dispatch(loadImages())
+});
 
-export default connect(mapStateToProps)(ImageGrid);
+export default connect(mapStateToProps, mapDispatchToProps)(ImageGrid);
